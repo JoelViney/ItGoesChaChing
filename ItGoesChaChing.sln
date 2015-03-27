@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing", "ItGoesChaChing\ItGoesChaChing.csproj", "{964EBFBE-A600-49B2-BDD8-422B46F1D544}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyIconWpf", "NotifyIconWpf\NotifyIconWpf.csproj", "{7AC63864-7638-41C4-969C-D3197EF2BED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Ebay", "ItGoesChaChing.Ebay\ItGoesChaChing.Ebay.csproj", "{37B556CA-14B2-47C2-878E-D7DCAE2469AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Ebay.Test", "ItGoesChaChingEbay.Test\ItGoesChaChing.Ebay.Test.csproj", "{4EB58497-9292-480D-8190-27F3C8E3039D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Uninstall", "ItGoesChaChing.Uninstall\ItGoesChaChing.Uninstall.csproj", "{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Installer", "ItGoesChaChing.Installer\ItGoesChaChing.Installer.csproj", "{68C1F601-EEC0-4DBA-919E-5620E3B048F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

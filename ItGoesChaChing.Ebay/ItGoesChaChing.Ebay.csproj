@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37B556CA-14B2-47C2-878E-D7DCAE2469AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItGoesChaChing.Ebay</RootNamespace>
+    <AssemblyName>ItGoesChaChing.Ebay</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientAlerts\Call\GetUserAlertsCall.cs" />
+    <Compile Include="ClientAlerts\Call\_JsonDeserializer.cs" />
+    <Compile Include="ClientAlerts\Call\_JsonWebRequest.cs" />
+    <Compile Include="ClientAlerts\Call\LoginCall.cs" />
+    <Compile Include="ClientAlerts\Call\LogoutCall.cs" />
+    <Compile Include="ClientAlerts\Call\_ClientAlertsCallBase.cs" />
+    <Compile Include="ClientAlerts\Json\AmountType.cs" />
+    <Compile Include="ClientAlerts\Json\AskSellerQuestionEventType.cs" />
+    <Compile Include="ClientAlerts\Json\BestOfferDeclinedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\BidPlacedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\BidReceivedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ClientAlertsBestOfferType.cs" />
+    <Compile Include="ClientAlerts\Json\CounterOfferReceivedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\EndOfAuctionEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ErrorType.cs" />
+    <Compile Include="ClientAlerts\Json\BestOfferEventType.cs" />
+    <Compile Include="ClientAlerts\Json\FeedbackLeftEventType.cs" />
+    <Compile Include="ClientAlerts\Json\FeedbackReceivedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\EndOfTransactionEventType.cs" />
+    <Compile Include="ClientAlerts\Json\BestOfferPlacedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\FeedbackStarChangedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemAddedToWatchListEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemEndedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemListedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemLostEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemMarkedPaidEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemMarkedShippedEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemRemovedFromWatchListEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemSoldEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemUnsoldEventType.cs" />
+    <Compile Include="ClientAlerts\Json\ItemWonEventType.cs" />
+    <Compile Include="ClientAlerts\Json\OutbidEventType.cs" />
+    <Compile Include="ClientAlerts\Json\SecondChanceOfferEventType.cs" />
+    <Compile Include="ClientAlerts\Json\WatchedItemEndingSoonEventType.cs" />
+    <Compile Include="ClientAlerts\Json\_ClientAlertsType.cs" />
+    <Compile Include="ClientAlerts\Json\_ClientAlertEventType.cs" />
+    <Compile Include="ClientAlerts\Json\_ListingEventTypeBase.cs" />
+    <Compile Include="ClientAlerts\Json\_ResponseTypeBase.cs" />
+    <Compile Include="IEbayLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,117 @@
+﻿<Window x:Class="ItGoesChaChing.View.OptionsView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:view="clr-namespace:ItGoesChaChing.View"
+		xmlns:viewModel="clr-namespace:ItGoesChaChing.ViewModel"
+		Height="440" MinHeight="440"
+		Width="670" MinWidth="680"
+		Title="{Binding ApplicationTitle}" 
+		Icon="..\WindowIcon.ico"
+		Closing="Window_Closing"
+		WindowStyle="None"
+		AllowsTransparency="True"
+		ResizeMode="CanResizeWithGrip"
+		ShowInTaskbar="True"
+		WindowStartupLocation="CenterScreen"
+		Background="LightGray">
+	
+	<Window.DataContext>
+		<viewModel:OptionsViewModel />
+	</Window.DataContext>
+	
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="..\Styles\DefaultStyle.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0" Background="LightGray" Height="21" VerticalAlignment="Top" Margin="0 0 0 0"
+			  MouseDown="TopBar_MouseDown">
+			<TextBlock Text="It Goes Cha-Ching" 
+					   Foreground="Blue" Margin="5 2 0 0"
+					   FontWeight="Bold" />
+			<Button Style="{StaticResource largeCloseButtonStyle}" Click="CloseButton_Click" />
+		</Grid>
+
+		<TabControl Grid.Row="1" TabStripPlacement="Left" Background="White">
+			<!--
+			<TabItem>
+				<TabItem.Header>
+					<StackPanel Orientation="Vertical" Margin="0 21 0 0">
+						<Image Height="50" Width="50" Source="/Images/OptionsGeneral.png" />
+						<Label Content="General" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+					</StackPanel>
+				</TabItem.Header>
+				<TabItem.Content>
+					<view:OptionsGeneralView x:Name="GeneralView" />
+				</TabItem.Content>
+			</TabItem>
+			-->
+
+			<TabItem>
+				<TabItem.Header>
+					<StackPanel Orientation="Vertical" Margin="0 0 0 0">
+						<Image Height="50" Width="50" Source="/Images/OptionsAccounts.png" />
+						<Label Content="Accounts" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+					</StackPanel>
+				</TabItem.Header>
+				<TabItem.Content>
+					<view:AccountsView />
+				</TabItem.Content>
+			</TabItem>
+			
+			<TabItem>
+				<TabItem.Header>
+					<StackPanel Orientation="Vertical" Margin="0 0 0 0">
+						<Image Height="50" Width="50" Source="/Images/OptionsScheduler.png" />
+						<Label Content="Scheduler" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+					</StackPanel>
+				</TabItem.Header>
+				<TabItem.Content>
+					<view:ScheduleView x:Name="ScheduleView" />
+				</TabItem.Content>
+			</TabItem>
+			
+			<TabItem>
+				<TabItem.Header>
+					<StackPanel Orientation="Vertical" Margin="0 0 0 0">
+						<Image Height="50" Width="50" Source="/Images/OptionsAlerts.png" />
+						<Label Content="Alert Options" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+					</StackPanel>
+				</TabItem.Header>
+				<TabItem.Content>
+					<view:AlertPreferencesView x:Name="AlertPreferencesView" />
+				</TabItem.Content>
+			</TabItem>
+			<TabItem Visibility="{Binding Debug, Converter={StaticResource boolToVisibilityConverter}}">
+				<TabItem.Header>
+					<StackPanel Orientation="Vertical" Margin="0 0 0 0">
+						<Image Height="50" Width="50" Source="/Images/OptionsAlerts.png" />
+						<Label Content="Notifications" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+					</StackPanel>
+				</TabItem.Header>
+				<TabItem.Content>
+					<view:NotificationPreferencesView />
+				</TabItem.Content>
+			</TabItem>
+			<!--
+			<TabItem>
+				<TabItem.Header>
+					<StackPanel Orientation="Vertical" Margin="0 0 0 0">
+						<Image Height="50" Width="50" Source="/Images/OptionsUsage.png" />
+						<Label Content="Usage" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+					</StackPanel>
+				</TabItem.Header>
+			</TabItem>
+			-->
+		</TabControl>
+	</Grid>
+</Window>

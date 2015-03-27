@@ -1,0 +1,105 @@
+﻿<Window x:Class="ItGoesChaChing.View.StartupWizardView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:viewModel="clr-namespace:ItGoesChaChing.ViewModel"
+		xmlns:helper="clr-namespace:ItGoesChaChing.Helpers"
+		Title="New Account" Height="300" Width="500"
+		Icon="..\WindowIcon.ico"
+		WindowStyle="None"
+		AllowsTransparency="True"
+		ResizeMode="CanResizeWithGrip"
+		ShowInTaskbar="True"
+		WindowStartupLocation="CenterScreen">
+	<Window.DataContext>
+		<viewModel:StartupWizardViewModel />
+	</Window.DataContext>
+
+	<!-- Using the grid so that we can superimpose the Button over the tab control -->
+	<Grid>
+		
+		<TabControl Grid.Row="0" Background="White" SelectedIndex ="{Binding WizardIndex}">
+			<TabControl.ItemContainerStyle>
+				<Style TargetType="{x:Type TabItem}">
+					<Setter Property="Visibility" Value="Collapsed" />
+				</Style>
+			</TabControl.ItemContainerStyle>
+			
+			<TabItem Header="Welcome">
+				<StackPanel>
+					<Image Source="../Images/Logo.png" Width="200" Height="150"/>
+					<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center">
+					Welcome to It goes Cha Ching.
+					</TextBlock>
+					<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center">
+					Your eBay Nofifications and Alerts application.
+					</TextBlock>
+					<Button Content="Setup Your Account" Command="{Binding NextCommand}" Height="21" Width="160" Margin="0 10 0 0" />
+				</StackPanel>
+			</TabItem>
+
+			<TabItem Header="Link To eBay">
+				<StackPanel>
+					<Image Source="../Images/LogoImage.png" Width="100" Height="75"/>
+					<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" TextAlignment="Center">
+					The first thing we are going to need to do is link your eBay account to<LineBreak/>
+					this app so eBay will send us the notifications.<LineBreak/>
+					<LineBreak/>
+					To do this you will need to login to eBay<LineBreak/>
+					in a web browser and follow the steps.
+					</TextBlock>
+					<Button Content="Go to eBay" Command="{Binding LinkToEbayCommand}" 
+							IsEnabled="{Binding LinkToEbayCommandEnabled}"
+							Height="21" Width="120" Margin="0 10 0 0" />
+				</StackPanel>
+			</TabItem>
+
+			<TabItem Header="Confirm">
+				<Grid>
+					<Button Content="Back" Height="21" Width="120" Command="{Binding BackCommand}" Margin="10 10 0 0" 
+							HorizontalAlignment="Left" VerticalAlignment="Top" />
+					<StackPanel>
+						<Image Source="../Images/LogoImage.png" Width="100" Height="75"/>
+						<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" TextAlignment="Center">
+						Once you have logged into eBay and agreed to link<LineBreak/>
+						your account click the Done button below.
+						</TextBlock>
+						<Button Content="Done" Command="{Binding ConfirmCommand}" 
+							Height="21" Width="120" Margin="0 10 0 0" HorizontalAlignment="Center" />
+					</StackPanel>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Success">
+				<StackPanel>
+					<Image Source="../Images/LogoImage.png" Width="100" Height="75"/>
+					<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" TextAlignment="Center">
+					Congratuations, you have linked your eBay account.<LineBreak/>
+					</TextBlock>
+					<Button Content="Finish" Height="21" Width="120" Click="CloseButton_Click" />
+				</StackPanel>
+			</TabItem>
+			<TabItem Header="Failed">
+				<StackPanel>
+					<Image Source="../Images/LogoImage.png" Width="100" Height="75"/>
+					<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" TextAlignment="Center">
+						Something went wrong and we were unable to link your eBay account.
+					</TextBlock>
+					<Button Content="Try Again" Command="{Binding TryAgainCommand}" 
+						Height="21" Width="120" Margin="0 20 0 20" />
+					<TextBlock TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" TextAlignment="Center"
+						Foreground="Red" 
+						Text="{Binding ErrorMessage}" />
+				</StackPanel>
+			</TabItem>
+		</TabControl>
+
+		<Button Content="✖" Height="21" Width="21" Click="CloseButton_Click"
+				Margin="5 5 5 5" Padding="0 0 0 0"
+				Foreground="Blue" FontSize="14"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+				/>
+		
+	</Grid>
+
+</Window>

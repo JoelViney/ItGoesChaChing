@@ -1,0 +1,5 @@
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Ebay\bin\Release\ItGoesChaChing.Ebay.dll
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Ebay\bin\Release\ItGoesChaChing.Ebay.pdb
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Ebay\obj\Release\ItGoesChaChing.Ebay.csprojResolveAssemblyReference.cache
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Ebay\obj\Release\ItGoesChaChing.Ebay.dll
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Ebay\obj\Release\ItGoesChaChing.Ebay.pdb

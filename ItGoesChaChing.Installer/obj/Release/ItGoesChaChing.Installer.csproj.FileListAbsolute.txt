@@ -1,0 +1,4 @@
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Installer\bin\Release\ItGoesChaChing.Installer.dll
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Installer\bin\Release\ItGoesChaChing.Installer.pdb
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Installer\obj\Release\ItGoesChaChing.Installer.dll
+D:\Dev\ItGoesChaChing\ItGoesChaChing.Installer\obj\Release\ItGoesChaChing.Installer.pdb

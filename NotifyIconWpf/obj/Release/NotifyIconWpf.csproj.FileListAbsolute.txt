@@ -1,0 +1,6 @@
+D:\Dev\ItGoesChaChing\NotifyIconWpf\bin\Release\TaskbarNotification.xml
+D:\Dev\ItGoesChaChing\NotifyIconWpf\bin\Release\TaskbarNotification.dll
+D:\Dev\ItGoesChaChing\NotifyIconWpf\bin\Release\TaskbarNotification.pdb
+D:\Dev\ItGoesChaChing\NotifyIconWpf\obj\Release\NotifyIconWpf.csprojResolveAssemblyReference.cache
+D:\Dev\ItGoesChaChing\NotifyIconWpf\obj\Release\TaskbarNotification.dll
+D:\Dev\ItGoesChaChing\NotifyIconWpf\obj\Release\TaskbarNotification.pdb

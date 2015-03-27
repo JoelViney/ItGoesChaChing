@@ -1,0 +1,53 @@
+﻿<Window x:Class="ItGoesChaChing.View.MessageBoxView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="Caption"
+		WindowStartupLocation="CenterOwner"
+		ShowInTaskbar="False"
+		ResizeMode="NoResize"
+		SizeToContent="WidthAndHeight"
+		DataContextChanged="Window_DataContextChanged">
+
+	<Grid Background="White">
+		<DockPanel Grid.ColumnSpan="2" HorizontalAlignment="Right">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
+				<Button x:Name="Button1" Width="80" Margin="0, 5, 5, 10">
+					<TextBlock x:Name="Button1Text" />
+				</Button>
+				<Button x:Name="Button2" Width="80" Margin="0, 5, 5, 10">
+					<TextBlock x:Name="Button2Text" />
+				</Button>
+				<Button x:Name="Button3" Width="80" Margin="0, 5, 10, 10">
+					<TextBlock x:Name="Button3Text" />
+				</Button>
+				<StackPanel.Style>
+					<!-- Cannot use DataTriggers directly in StackPanel.Triggers, therefore Style -->
+					<Style TargetType="{x:Type StackPanel}">
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding FocusedButton}" Value="One">
+								<Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=Button1}"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding FocusedButton}" Value="Two">
+								<Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=Button2}"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding FocusedButton}" Value="Three">
+								<Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=Button3}"/>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</StackPanel.Style>
+			</StackPanel>
+
+			<StackPanel DockPanel.Dock="Left">
+				<Image x:Name="IconImage" Height="32" Width="32" Source="{Binding Path=IconImageSource}" Margin="5" />
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" DockPanel.Dock="Top" Opacity="0.995">
+				<TextBlock x:Name="Text" Margin="20, 10" TextAlignment="{Binding TextAlignment}">
+					Are you sure you wish to continue?
+				</TextBlock>
+			</StackPanel>
+
+		</DockPanel>
+	</Grid>
+</Window>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{964EBFBE-A600-49B2-BDD8-422B46F1D544}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItGoesChaChing</RootNamespace>
+    <AssemblyName>ItGoesChaChing</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://ftp.beachrife.com.au/itgoeschaching/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>1</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.beachrife.com.au/itgoeschaching/</InstallUrl>
+    <PublisherName>Beachrife</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WindowIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E46C3336B5E3BE64ACF6D3DC47DE4D1D6532B01A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ItGoesChaChing_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="eBay.Service, Version=3.861.0.0, Culture=neutral, PublicKeyToken=1d9d786a5932eaf0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Include\eBay.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\AlertTemplateSelector.cs" />
+    <Compile Include="Converters\AmountTypeConverter.cs" />
+    <Compile Include="Converters\BitmapToSourceConverter.cs" />
+    <Compile Include="Converters\BoolToValueConverter.cs" />
+    <Compile Include="Converters\LocalTimeConverter.cs" />
+    <Compile Include="Converters\MaxLengthConverter.cs" />
+    <Compile Include="DependencyFactory.cs" />
+    <Compile Include="Helpers\BitmapExtensions.cs" />
+    <Compile Include="Helpers\ClickOnceHelper.cs" />
+    <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="Helpers\MessageBoxEx.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\WebBrowserEx.cs" />
+    <Compile Include="Helpers\WindowHelper.cs" />
+    <Compile Include="LocalSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>LocalSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\AccountList.cs" />
+    <Compile Include="Model\AlertPreference.cs" />
+    <Compile Include="Model\Alerts\FeedbackRecievedAlert.cs" />
+    <Compile Include="Model\Alerts\Item.cs" />
+    <Compile Include="Model\Alerts\ItemSoldAlert.cs" />
+    <Compile Include="Model\Alerts\Media.cs" />
+    <Compile Include="Model\Alerts\MessageAlert.cs" />
+    <Compile Include="Model\Alerts\User.cs" />
+    <Compile Include="Model\Alerts\_AlertBase.cs" />
+    <Compile Include="Model\Ebay\JsonServiceStub.cs" />
+    <Compile Include="Model\Engine_Queue.cs" />
+    <Compile Include="Model\Factories\AlertPreferencesFactory.cs" />
+    <Compile Include="Model\Factories\_FactoryBase.cs" />
+    <Compile Include="Model\IDirty.cs" />
+    <Compile Include="Model\Jobs\LinkEbayAccountJob.cs" />
+    <Compile Include="Model\Factories\AccountsFactory.cs" />
+    <Compile Include="Model\Alerts\ExceptionAlert.cs" />
+    <Compile Include="Model\Alerts\LoginAlert.cs" />
+    <Compile Include="Model\Alerts\TickAlert.cs" />
+    <Compile Include="Helpers\BitmapHelper.cs" />
+    <Compile Include="Model\Context.cs" />
+    <Compile Include="Model\Ebay\AccessRule.cs" />
+    <Compile Include="Model\Ebay\FetchToken.cs" />
+    <Compile Include="Model\Ebay\GetApiAccessRules.cs" />
+    <Compile Include="Model\Ebay\GetEbayDetails.cs" />
+    <Compile Include="Model\Ebay\GetMemberMessages.cs" />
+    <Compile Include="Model\Ebay\GetMyMessages.cs" />
+    <Compile Include="Model\Ebay\GetNotificationPreferences.cs" />
+    <Compile Include="Model\Ebay\GetSignInUrl.cs" />
+    <Compile Include="Model\Ebay\GetTimeCommand.cs" />
+    <Compile Include="Model\Ebay\GetUserCommand.cs" />
+    <Compile Include="Model\Ebay\GetUserAlertsToken.cs" />
+    <Compile Include="Model\Ebay\SetNotificationPreferences.cs" />
+    <Compile Include="Model\Ebay\_EbayCommandBase.cs" />
+    <Compile Include="Model\Ebay\_EbayContext.cs" />
+    <Compile Include="Model\Engine.cs" />
+    <Compile Include="Model\Jobs\PopulateSitesJob.cs" />
+    <Compile Include="Model\Jobs\GetUserAlertsJob.cs" />
+    <Compile Include="Model\Jobs\LoginJob.cs" />
+    <Compile Include="Model\Jobs\LogoutJob.cs" />
+    <Compile Include="Model\Jobs\UpdatePreferencesJob.cs" />
+    <Compile Include="Model\NotificationPreference.cs" />
+    <Compile Include="Model\PictureDownloader.cs" />
+    <Compile Include="Model\Scheduler.cs" />
+    <Compile Include="Model\Factories\ScheduleFactory.cs" />
+    <Compile Include="Model\Site.cs" />
+    <Compile Include="Model\Factories\SitesFactory.cs" />
+    <Compile Include="Model\Test.cs" />
+    <Compile Include="Model\UrlLink.cs" />
+    <Compile Include="Model\UrlLinkList.cs" />
+    <Compile Include="Model\_ModelBase.cs" />
+    <Compile Include="NotifyPropertyChangedBase.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\AlertPreferencesViewModel.cs" />
+    <Compile Include="ViewModel\MessageBoxViewModel.cs" />
+    <Compile Include="ViewModel\PopUpViewModel.cs" />
+    <Compile Include="ViewModel\AccountsViewModel.cs" />
+    <Compile Include="ViewModel\StartupWizardViewModel.cs" />
+    <Compile Include="ViewModel\HistoryViewModel.cs" />
+    <Compile Include="ViewModel\ScheduleViewModel.cs" />
+    <Compile Include="ViewModel\OptionsViewModel.cs" />
+    <Compile Include="ViewModel\NotificationPreferencesViewModel.cs" />
+    <Compile Include="ViewModel\_ViewModelBase.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AlertPreferencesView.xaml.cs">
+      <DependentUpon>AlertPreferencesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AccountsView.xaml.cs">
+      <DependentUpon>AccountsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessageBoxView.xaml.cs">
+      <DependentUpon>MessageBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StartupWizardView.xaml.cs">
+      <DependentUpon>StartupWizardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PopupView.xaml.cs">
+      <DependentUpon>PopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NotificationPreferencesView.xaml.cs">
+      <DependentUpon>NotificationPreferencesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScheduleView.xaml.cs">
+      <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OptionsView.xaml.cs">
+      <DependentUpon>OptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
+    <Page Include="Styles\DefaultStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AlertPreferencesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AccountsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MessageBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StartupWizardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AlertView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NotificationPreferencesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NotifyIconView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModel\NotifyIconViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="Data\Sounds\Groan.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Sounds\Scream.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LogoImage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OptionsScheduler.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Account.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="ItGoesChaChing_TemporaryKey.pfx" />
+    <None Include="LocalSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>LocalSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ItGoesChaChing.Ebay\ItGoesChaChing.Ebay.csproj">
+      <Project>{37b556ca-14b2-47c2-878e-d7dcae2469ad}</Project>
+      <Name>ItGoesChaChing.Ebay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItGoesChaChing.Installer\ItGoesChaChing.Installer.csproj">
+      <Project>{68c1f601-eec0-4dba-919e-5620e3b048f0}</Project>
+      <Name>ItGoesChaChing.Installer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItGoesChaChing.Uninstall\ItGoesChaChing.Uninstall.csproj">
+      <Project>{0cd11d9e-6b6a-4b9c-a13f-cbc20b618d60}</Project>
+      <Name>ItGoesChaChing.Uninstall</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotifyIconWpf\NotifyIconWpf.csproj">
+      <Project>{7ac63864-7638-41c4-969c-d3197ef2bed9}</Project>
+      <Name>NotifyIconWpf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Remove.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Alerts\Login.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\SampleItem01.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\SampleItem02.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\SampleItem03.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WindowIcon.ico" />
+    <Resource Include="TaskbarIcon.ico" />
+    <Content Include="Data\Sounds\BabyChicks.mp3" />
+    <Content Include="Data\Sounds\BabyChicks.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Sounds\ChaChing.mp3" />
+    <Content Include="Data\Sounds\ChaChing.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Sounds\Cheering.mp3" />
+    <Content Include="Data\Sounds\Cheering.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Sounds\Suspense.mp3" />
+    <Content Include="Data\Sounds\Suspense.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\OptionsUsage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OptionsAccounts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OptionsAlerts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OptionsGeneral.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\Tick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\AskSellerQuestion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\FeedbackIndependentlyWithdrawn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\FeedbackWithdrawn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\FeedbackNegative.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\FeedbackNeutral.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Alerts\FeedbackPositive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

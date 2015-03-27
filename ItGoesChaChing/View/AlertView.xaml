@@ -1,0 +1,510 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:viewModel="clr-namespace:ItGoesChaChing.ViewModel"
+					xmlns:view="clr-namespace:ItGoesChaChing.View"
+					xmlns:converters="clr-namespace:ItGoesChaChing.Converters">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="..\Styles\DefaultStyle.xaml"/>
+	</ResourceDictionary.MergedDictionaries>
+
+	<converters:BitmapToSourceConverter x:Key="bitmapToSourceConverter" />
+	<converters:AmountTypeConverter x:Key="amountTypeConverter"/>
+
+	<Style x:Key="borderBackgroundStyle" TargetType="{x:Type Border}">
+		<Setter Property="Border.MinWidth" Value="350" />
+		<Setter Property="Border.BorderBrush" Value="Black" />
+		<Setter Property="Border.BorderThickness" Value="1" />
+		<!-- <Setter Property="Border.CornerRadius" Value="10" /> -->
+		<Setter Property="Border.Margin" Value="0 0 0 1" />
+		<Setter Property="Border.Padding" Value="2 2 2 2" />
+		<Setter Property="Background" Value="White" />
+	</Style>
+	
+	<Style x:Key="iconImageStyle" TargetType="{x:Type Image}">
+		<Setter Property="Width" Value="50" />
+		<Setter Property="Height" Value="50" />
+		<Setter Property="Margin" Value="5" />
+	</Style>
+
+	<Style x:Key="timestampTextBlockStyle" TargetType="TextBlock">
+		<Setter Property="Padding" Value="0 5 0 0" />
+	</Style>
+	<Style x:Key="headerTextBlockStyle" TargetType="TextBlock">
+		<Setter Property="FontWeight" Value="ExtraBold" />
+		<Setter Property="Padding" Value="0 5 0 0" />
+	</Style>
+	<Style x:Key="normalTextBlockStyle" TargetType="TextBlock">
+		<Setter Property="Padding" Value="0 0 0 0" />
+	</Style>
+
+	<DataTemplate x:Key="defaultAlertTemplate">
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource iconImageStyle}" 
+					   Source="{Binding Path=Image, Converter={StaticResource bitmapToSourceConverter}}" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}">
+					<TextBlock.Inlines>
+						<Run Text="{Binding AlertTitle, Mode=OneTime}" />
+						<Run Text="(#" />
+						<Run Text="{Binding ItemID, Mode=OneTime}" />
+						<Run Text=")" />
+					</TextBlock.Inlines>
+				</TextBlock>
+
+				<TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource timestampTextBlockStyle}" 
+						   Text="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=t}" 
+						   ToolTip="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=F}" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical">
+					<TextBlock Text="This is a default alert." Style="{StaticResource normalTextBlockStyle}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</DataTemplate>
+	
+	<DataTemplate x:Key="listingEventTypesBaseTemplate">
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource iconImageStyle}" 
+					   Source="{Binding Path=Image, Converter={StaticResource bitmapToSourceConverter}}" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}">
+					<TextBlock.Inlines>
+						<Run Text="{Binding AlertTitle, Mode=OneTime}" />
+						<Run Text="(#" />
+						<Run Text="{Binding ItemID, Mode=OneTime}" />
+						<Run Text=")" />
+					</TextBlock.Inlines>
+				</TextBlock>
+
+				<TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource timestampTextBlockStyle}" 
+						   Text="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=t}" 
+						   ToolTip="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=F}" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical">
+					<TextBlock Text="{Binding Title}" Style="{StaticResource normalTextBlockStyle}" />
+					<TextBlock Text="{Binding CurrentPrice}" Style="{StaticResource normalTextBlockStyle}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<!-- GTC Listing sale. -->
+	<DataTemplate x:Key="fixedPriceTransactionTemplate">
+		<DataTemplate.Triggers>
+			<!-- only make a sound when the Alert is a Popup not when it is viewed from the application History -->
+			<DataTrigger Binding="{Binding DataContext.PlaySound, ElementName=view}" Value="true">
+				<DataTrigger.EnterActions>
+					<SoundPlayerAction Source="../Data/Sounds/ChaChing.wav" />
+				</DataTrigger.EnterActions>
+			</DataTrigger>
+		</DataTemplate.Triggers>
+		
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource iconImageStyle}" 
+					   Source="{Binding Path=Item.Media.Image, Converter={StaticResource bitmapToSourceConverter}}" 
+					   ToolTip="{Binding Account.UserId}" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}">
+					<TextBlock.Inlines>
+						<Run Text="Item Sold to" />
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+									   CommandParameter="{Binding Buyer.ViewUserUrl}">
+							<TextBlock Style="{StaticResource normalTextBlockStyle}" Text="{Binding Buyer.UserId}" />
+						</Hyperlink>
+					</TextBlock.Inlines>
+				</TextBlock>
+
+				<TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource timestampTextBlockStyle}" 
+						Text="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=t}" 
+						ToolTip="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=F}" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Vertical">
+					<TextBlock Style="{StaticResource normalTextBlockStyle}">
+						<TextBlock.Inlines>
+							<Run Text="{Binding QuantitySold}" />
+							<Run Text="x" />
+							<Run Text="{Binding AmountPaid, Converter={StaticResource amountTypeConverter}}" />
+						</TextBlock.Inlines>
+					</TextBlock>
+					<TextBlock Style="{StaticResource normalTextBlockStyle}">
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+									   CommandParameter="{Binding Item.ViewItemUrl}">
+							<TextBlock Style="{StaticResource normalTextBlockStyle}" Text="{Binding Item.Title}" />
+						</Hyperlink>
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<DataTemplate x:Key="askSellerQuestionTemplate">
+		<DataTemplate.Triggers>
+			<!-- only make a sound when the Alert is a Popup not when it is viewed from the application History -->
+			<DataTrigger Binding="{Binding DataContext.PlaySound, ElementName=view}" Value="true">
+				<DataTrigger.EnterActions>
+					<SoundPlayerAction Source="../Data/Sounds/BabyChicks.wav" />
+				</DataTrigger.EnterActions>
+			</DataTrigger>
+		</DataTemplate.Triggers>
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource iconImageStyle}" 
+					   Source="..\Images\Alerts\AskSellerQuestion.png"
+					   ToolTip="{Binding Account.UserId}" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}">
+					<TextBlock.Inlines>
+						<Run Text="Message Received from" />
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+								   CommandParameter="{Binding Sender.ViewUserUrl}">
+							<TextBlock Text="{Binding Sender.UserId}" />
+						</Hyperlink>
+					</TextBlock.Inlines>
+				</TextBlock>
+
+				<TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource timestampTextBlockStyle}" 
+						   Text="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=t}" 
+						   ToolTip="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=f}" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+					<TextBlock Style="{StaticResource normalTextBlockStyle}" Text="{Binding Subject, Converter={StaticResource maxLength80Converter}}" />
+					<TextBlock Style="{StaticResource normalTextBlockStyle}" Text="{Binding Body}" Foreground="Blue" />
+
+					<ItemsControl Grid.Row="2" ItemsSource="{Binding MediaList}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<WrapPanel />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<Border Background="GhostWhite" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="0" Margin="1 0 1 1">
+									<StackPanel Orientation="Vertical">
+										<Button Style="{StaticResource invisibleButtonStyle}" 
+												Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}" 
+												CommandParameter="{Binding Url}">
+											<Image Style="{StaticResource iconImageStyle}" Source="{Binding Image, Converter={StaticResource bitmapToSourceConverter}}" />
+										</Button>
+									</StackPanel>
+								</Border>
+							</DataTemplate>
+
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</StackPanel>
+
+				<StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+					
+					<!-- TODO: Add the image here -->
+					<TextBlock Style="{StaticResource normalTextBlockStyle}">
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+									   CommandParameter="{Binding Item.ViewItemUrl}">
+							<TextBlock Style="{StaticResource normalTextBlockStyle}" Text="{Binding Item.Title}" />
+						</Hyperlink>
+					</TextBlock>
+					
+				</StackPanel>
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<DataTemplate x:Key="feedbackReceivedTemplate">
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" ToolTip="{Binding Account.UserId}">
+					<Image.Style>
+						<Style TargetType="{x:Type Image}" BasedOn="{StaticResource iconImageStyle}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding CommentType}" Value="Positive">
+									<Setter Property="Source" Value="..\Images\Alerts\FeedbackPositive.png"/>
+								</DataTrigger>
+
+								<DataTrigger Binding="{Binding CommentType}" Value="Neutral">
+									<Setter Property="Source" Value="..\Images\Alerts\FeedbackNeutral.png"/>
+								</DataTrigger>
+								<DataTrigger Binding="{Binding CommentType}" Value="Negative">
+									<Setter Property="Source" Value="..\Images\Alerts\FeedbackNegative.png"/>
+								</DataTrigger>
+
+								<DataTrigger Binding="{Binding CommentType}" Value="IndependentlyWithdrawn">
+									<Setter Property="Source" Value="..\Images\Alerts\FeedbackIndependentlyWithdrawn.png"/>
+								</DataTrigger>
+
+								<DataTrigger Binding="{Binding CommentType}" Value="Withdrawn">
+									<Setter Property="Source" Value="..\Images\Alerts\FeedbackWithdrawn.png"/>
+								</DataTrigger>
+
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition Binding="{Binding CommentType}" Value="Positive"/>
+										<Condition Binding="{Binding DataContext.PlaySound, ElementName=view}" Value="true"/>
+									</MultiDataTrigger.Conditions>
+									<MultiDataTrigger.EnterActions>
+										<SoundPlayerAction Source="../Data/Sounds/Cheering.wav" />
+									</MultiDataTrigger.EnterActions>
+								</MultiDataTrigger>
+
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition Binding="{Binding CommentType}" Value="Neutral"/>
+										<Condition Binding="{Binding DataContext.PlaySound, ElementName=view}" Value="true"/>
+									</MultiDataTrigger.Conditions>
+									<MultiDataTrigger.EnterActions>
+										<SoundPlayerAction Source="../Data/Sounds/Groan.wav" />
+									</MultiDataTrigger.EnterActions>
+								</MultiDataTrigger>
+
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition Binding="{Binding CommentType}" Value="Negative"/>
+										<Condition Binding="{Binding DataContext.PlaySound, ElementName=view}" Value="true"/>
+									</MultiDataTrigger.Conditions>
+									<MultiDataTrigger.EnterActions>
+										<SoundPlayerAction Source="../Data/Sounds/Scream.wav" />
+									</MultiDataTrigger.EnterActions>
+								</MultiDataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Image.Style>
+				</Image>
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}">
+					<TextBlock.Inlines>
+						<Run Text="Feedback Received from" />
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+								   CommandParameter="{Binding CommentingUser.ViewUserUrl}">
+							<TextBlock Text="{Binding CommentingUser.UserId}" />
+						</Hyperlink>
+					</TextBlock.Inlines>
+				</TextBlock>
+
+				<TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource timestampTextBlockStyle}" 
+						   Text="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=t}" 
+						   ToolTip="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=f}" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+					<TextBlock Style="{StaticResource normalTextBlockStyle}">
+						<TextBlock.Inlines>
+							<Run Text="{Binding CommentText}" />
+						</TextBlock.Inlines>
+					</TextBlock>
+					<TextBlock Style="{StaticResource normalTextBlockStyle}">
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+									   CommandParameter="{Binding Item.ViewItemUrl}">
+							<TextBlock Style="{StaticResource normalTextBlockStyle}" 
+									   Text="{Binding Item.Title}" />
+						</Hyperlink>
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<DataTemplate x:Key="loginTemplate">
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource iconImageStyle}" Source="..\Images\Alerts\Login.png" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}">
+					<TextBlock.Inlines>
+						<Run Text="Logging in " />
+						<Hyperlink Command="{Binding DataContext.HyperlinkClickedCommand, ElementName=view}"
+								   CommandParameter="{Binding AccountUrl}">
+							<TextBlock Text="{Binding UserId}" />
+						</Hyperlink>
+					</TextBlock.Inlines>
+				</TextBlock>
+
+				<TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource timestampTextBlockStyle}" 
+						   Text="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=t}" 
+						   ToolTip="{Binding Timestamp, Converter={StaticResource toLocalTimeConverter}, StringFormat=f}" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+					<TextBlock Style="{StaticResource normalTextBlockStyle}">
+						<TextBlock.Inlines>
+							<Run Text="Connecting to eBay..." />
+							<Run Text="{Binding Detail}" />
+						</TextBlock.Inlines>
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<!-- Tick Template. -->
+	<DataTemplate x:Key="tickTemplate">
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Style="{StaticResource iconImageStyle}" 
+					    Source="..\Images\Alerts\Tick.png" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}" Text="Tick" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="0 0 0 5">
+					<TextBlock Text="This is a debug alert" Style="{StaticResource normalTextBlockStyle}" />
+					<TextBlock Text="You can turn this off in the options menu." Style="{StaticResource normalTextBlockStyle}" />
+				</StackPanel>
+
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<!-- Exception Template. -->
+	<DataTemplate x:Key="exceptionTemplate">
+		<Border Style="{StaticResource borderBackgroundStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<!-- TODO: We need a better image. -->
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Style="{StaticResource iconImageStyle}" 
+					    Source="..\Images\Alerts\Tick.png" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource headerTextBlockStyle}" Text="Application Exception" />
+
+				<Button Grid.Column="3" Grid.Row="0" Style="{StaticResource closeButtonStyle}" 
+						Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+						CommandParameter="{Binding}" />
+
+				<StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="0 0 0 5">
+					<TextBlock Text="{Binding Message}" Style="{StaticResource normalTextBlockStyle}" />
+				</StackPanel>
+
+			</Grid>
+		</Border>
+	</DataTemplate>
+
+	<converters:AlertTemplateSelector x:Key="alertTemplateSelector"
+			DefaultAlertTemplate="{StaticResource defaultAlertTemplate}"
+			ExceptionTemplate="{StaticResource exceptionTemplate}"
+			ListingEventTypesBaseTemplate="{StaticResource listingEventTypesBaseTemplate}"
+					
+			AskSellerQuestionTemplate="{StaticResource askSellerQuestionTemplate}"
+			FeedbackReceivedTemplate="{StaticResource feedbackReceivedTemplate}"
+			FixedPriceTransactionTemplate="{StaticResource fixedPriceTransactionTemplate}"
+									  
+			LoginTemplate="{StaticResource loginTemplate}"
+			TickTemplate="{StaticResource tickTemplate}"
+			/>
+
+</ResourceDictionary>

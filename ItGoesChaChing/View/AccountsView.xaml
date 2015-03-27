@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="ItGoesChaChing.View.AccountsView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:view="clr-namespace:ItGoesChaChing.View"
+			 xmlns:model="clr-namespace:ItGoesChaChing.Model"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="300" d:DesignWidth="300"
+			 Name="view">
+
+	<!-- The runtime datacontext is loaded in OptionsAccountsView constructor. -->
+	<UserControl.DataContext>
+		<model:AccountList>
+			<model:AccountList.Accounts>
+				<model:Account UserId="Test Account #1" SiteCode="Australia" />
+				<model:Account UserId="Test Account #2" SiteCode="Australia" />
+				<model:Account UserId="Test Account #3" SiteCode="Australia" />
+			</model:AccountList.Accounts>
+		</model:AccountList>
+	</UserControl.DataContext>
+	
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="..\Styles\DefaultStyle.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"  />
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0" Orientation="Horizontal">
+			<Button Style="{StaticResource flatButtonStyle}" Content="Add" Command="{Binding Path=AddCommand}" />
+		</StackPanel>
+
+		<ItemsControl Grid.Row="1" ItemsSource="{Binding Accounts}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+			
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Border Background="GhostWhite" BorderBrush="DarkGray"
+							BorderThickness="1" CornerRadius="0" Margin="1 0 1 1">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Column="0" Height="50" Source="../Images/Account.png" />
+
+							<StackPanel Grid.Column="1" Orientation="Vertical">
+								<TextBlock Text="{Binding UserId}" FontWeight="Bold" />
+								<TextBlock Text="{Binding SiteCode}" />
+							</StackPanel>
+
+							<Button Grid.Column="2" Style="{StaticResource closeButtonStyle}" 
+									Command="{Binding DataContext.RemoveCommand, ElementName=view}"
+									CommandParameter="{Binding}"
+									VerticalAlignment="Top"
+									/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+
+	</Grid>
+</UserControl>
