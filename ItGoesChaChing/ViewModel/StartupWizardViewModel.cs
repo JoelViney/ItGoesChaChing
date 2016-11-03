@@ -26,15 +26,9 @@ namespace ItGoesChaChing.ViewModel
 
 		#region Constructors...
 
-		public StartupWizardViewModel(): 
-			this(DependencyFactory.Resolve<ILogger>())
+		public StartupWizardViewModel()
 		{
-		
-		}
-
-		public StartupWizardViewModel(ILogger logger)
-		{
-			this.Logger = logger;
+			this.Logger = LogManager.GetLogger();
 
 			this._wizardIndex = 0;
 			this._linkToEbayCommandEnabled = true;

@@ -1,6 +1,7 @@
 ﻿<Window x:Class="ItGoesChaChing.View.MessageBoxView"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:viewModel="clr-namespace:ItGoesChaChing.ViewModel"
 		Title="Caption"
 		WindowStartupLocation="CenterOwner"
 		ShowInTaskbar="False"
@@ -8,6 +9,10 @@
 		SizeToContent="WidthAndHeight"
 		DataContextChanged="Window_DataContextChanged">
 
+	<Window.DataContext>
+		<viewModel:MessageBoxViewModel Text="Hello" Caption="This is a Caption" />
+	</Window.DataContext>
+	
 	<Grid Background="White">
 		<DockPanel Grid.ColumnSpan="2" HorizontalAlignment="Right">
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
@@ -44,7 +49,6 @@
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" DockPanel.Dock="Top" Opacity="0.995">
 				<TextBlock x:Name="Text" Margin="20, 10" TextAlignment="{Binding TextAlignment}">
-					Are you sure you wish to continue?
 				</TextBlock>
 			</StackPanel>
 

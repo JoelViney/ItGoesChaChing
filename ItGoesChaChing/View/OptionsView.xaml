@@ -79,18 +79,6 @@
 					<view:ScheduleView x:Name="ScheduleView" />
 				</TabItem.Content>
 			</TabItem>
-			
-			<TabItem>
-				<TabItem.Header>
-					<StackPanel Orientation="Vertical" Margin="0 0 0 0">
-						<Image Height="50" Width="50" Source="/Images/OptionsAlerts.png" />
-						<Label Content="Alert Options" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
-					</StackPanel>
-				</TabItem.Header>
-				<TabItem.Content>
-					<view:AlertPreferencesView x:Name="AlertPreferencesView" />
-				</TabItem.Content>
-			</TabItem>
 			<TabItem Visibility="{Binding Debug, Converter={StaticResource boolToVisibilityConverter}}">
 				<TabItem.Header>
 					<StackPanel Orientation="Vertical" Margin="0 0 0 0">

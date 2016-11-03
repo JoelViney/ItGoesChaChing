@@ -1,4 +1,4 @@
-﻿using NLog;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,67 +36,82 @@ namespace ItGoesChaChing
 	/// <summary></summary>
 	public sealed class Logger : ILogger, ItGoesChaChing.Ebay.ILogger
 	{
-		private readonly NLog.Logger _logger = LogManager.GetCurrentClassLogger();
+		private Type _type;
+		private log4net.ILog _logger;
 
 		#region Constructors...
 
-		public Logger()
+		public Logger(Type type)
 		{
-
+			this._type = type; 
+			_logger = log4net.LogManager.GetLogger(type);
 		}
 
 		#endregion
 
-		public void Log(LogLevel logType, string message, System.Exception exception)
+		public void Log(LogLevel logLevel, string message, System.Exception exception)
 		{
-			this._logger.Log(ConvertToNLog(logType), message, exception);
+			_logger.Logger.Log(this._type, ConvertToNLog(logLevel), message, exception);
 		}
 
-		public void Log(LogLevel logType, string message, params object[] args)
+		public void Log(LogLevel logLevel, string message, params object[] args)
 		{
-			this._logger.Log(ConvertToNLog(logType), args);
+			_logger.Logger.Log(this._type, ConvertToNLog(logLevel), FormatMessage(message, args), null);
 		}
 
-		public void Log(LogLevel logType, string message)
+		public void Log(LogLevel logLevel, string message)
 		{
-			this._logger.Log(ConvertToNLog(logType), message);
-		}
-
-		private NLog.LogLevel ConvertToNLog(LogLevel logType)
-		{ 
-			switch (logType)
-			{
-				case LogLevel.Debug: return NLog.LogLevel.Debug;
-				case LogLevel.Info: return NLog.LogLevel.Info;
-			}
-			return NLog.LogLevel.Error;
+			_logger.Logger.Log(this._type, ConvertToNLog(logLevel), message, null);
 		}
 
 		#region Ebay.ILogger.Log...
-		
-		void Ebay.ILogger.Log(Ebay.LogLevel logLevel, string message)
-		{
-			this._logger.Log(ConvertToNLog(logLevel), message);
-		}
 
 		void Ebay.ILogger.Log(Ebay.LogLevel logLevel, string message, Exception exception)
 		{
-			this._logger.Log(ConvertToNLog(logLevel), message, exception);
+			_logger.Logger.Log(this._type, ConvertToNLog(logLevel), message, exception);
 		}
 
 		void Ebay.ILogger.Log(Ebay.LogLevel logLevel, string message, params object[] args)
 		{
-			this._logger.Log(ConvertToNLog(logLevel), message, args);
+			_logger.Logger.Log(this._type, ConvertToNLog(logLevel), FormatMessage(message, args), null);
+		}
+		
+		void Ebay.ILogger.Log(Ebay.LogLevel logLevel, string message)
+		{
+			_logger.Logger.Log(this._type, ConvertToNLog(logLevel), message, null);
 		}
 
-		private NLog.LogLevel ConvertToNLog(Ebay.LogLevel logType)
+		private string FormatMessage(string message, params object[] args)
+		{ 
+			try
+			{
+				string result = String.Format(message, args);
+				return result;
+			}
+			catch(Exception ex)
+			{
+				return ex.ToString();
+			}
+		}
+
+		private log4net.Core.Level ConvertToNLog(LogLevel logType)
 		{
 			switch (logType)
 			{
-				case Ebay.LogLevel.Debug: return NLog.LogLevel.Debug;
-				case Ebay.LogLevel.Info: return NLog.LogLevel.Info;
+				case LogLevel.Debug: return log4net.Core.Level.Debug;
+				case LogLevel.Info: return log4net.Core.Level.Info;
 			}
-			return NLog.LogLevel.Error;
+			return log4net.Core.Level.Error;
+		}
+
+		private log4net.Core.Level ConvertToNLog(Ebay.LogLevel logType)
+		{
+			switch (logType)
+			{
+				case Ebay.LogLevel.Debug: return log4net.Core.Level.Debug;
+				case Ebay.LogLevel.Info: return log4net.Core.Level.Info;
+			}
+			return log4net.Core.Level.Error;
 		}
 
 		#endregion

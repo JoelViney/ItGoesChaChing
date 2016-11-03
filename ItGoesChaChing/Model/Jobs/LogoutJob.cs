@@ -16,14 +16,8 @@ namespace ItGoesChaChing.Model.Jobs
 		#region Constructors...
 
 		public LogoutJob()
-			: this(DependencyFactory.Resolve<ILogger>())
 		{
-
-		}
-
-		public LogoutJob(ILogger logger)
-		{
-			this.Logger = logger;
+            this.Logger = LogManager.GetLogger();
 		}
 
 		#endregion

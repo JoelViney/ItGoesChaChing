@@ -19,7 +19,7 @@ namespace ItGoesChaChing.Ebay
 		Error,
 	};
 
-	/// <summary>Defines the interface required for the Logger.</summary>
+	/// <summary>Defines the interface required for the Logging information from the Ebay layer.</summary>
 	public interface ILogger
 	{
 		void Log(LogLevel logLevel, string message);

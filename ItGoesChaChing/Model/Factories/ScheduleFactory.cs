@@ -18,13 +18,9 @@ namespace ItGoesChaChing.Model.Factories
 
 		#region Constructors...
 
-		public ScheduleFactory() : this(DependencyFactory.Resolve<ILogger>())
+		public ScheduleFactory()
 		{
-
-		}
-		public ScheduleFactory(ILogger logger)
-		{
-			this.Logger = logger;
+			this.Logger = LogManager.GetLogger();
 		}
 
 		#endregion

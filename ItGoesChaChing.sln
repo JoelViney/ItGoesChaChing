@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing", "ItGoesChaChing\ItGoesChaChing.csproj", "{964EBFBE-A600-49B2-BDD8-422B46F1D544}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyIconWpf", "NotifyIconWpf\NotifyIconWpf.csproj", "{7AC63864-7638-41C4-969C-D3197EF2BED9}"
@@ -9,40 +11,62 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Ebay", "ItGo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Ebay.Test", "ItGoesChaChingEbay.Test\ItGoesChaChing.Ebay.Test.csproj", "{4EB58497-9292-480D-8190-27F3C8E3039D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Uninstall", "ItGoesChaChing.Uninstall\ItGoesChaChing.Uninstall.csproj", "{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItGoesChaChing.Installer", "ItGoesChaChing.Installer\ItGoesChaChing.Installer.csproj", "{68C1F601-EEC0-4DBA-919E-5620E3B048F0}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ItGoesChaChing.Setup", "ItGoesChaChing.Setup\ItGoesChaChing.Setup.vdproj", "{0D7F87D6-E85B-45CD-977F-47F863534955}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{964EBFBE-A600-49B2-BDD8-422B46F1D544}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AC63864-7638-41C4-969C-D3197EF2BED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC63864-7638-41C4-969C-D3197EF2BED9}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{37B556CA-14B2-47C2-878E-D7DCAE2469AD}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{4EB58497-9292-480D-8190-27F3C8E3039D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EB58497-9292-480D-8190-27F3C8E3039D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{4EB58497-9292-480D-8190-27F3C8E3039D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EB58497-9292-480D-8190-27F3C8E3039D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CD11D9E-6B6A-4B9C-A13F-CBC20B618D60}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68C1F601-EEC0-4DBA-919E-5620E3B048F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB58497-9292-480D-8190-27F3C8E3039D}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{0D7F87D6-E85B-45CD-977F-47F863534955}.CD_ROM|Any CPU.ActiveCfg = Release
+		{0D7F87D6-E85B-45CD-977F-47F863534955}.Debug|Any CPU.ActiveCfg = Debug
+		{0D7F87D6-E85B-45CD-977F-47F863534955}.DVD-5|Any CPU.ActiveCfg = Debug
+		{0D7F87D6-E85B-45CD-977F-47F863534955}.Release|Any CPU.ActiveCfg = Release
+		{0D7F87D6-E85B-45CD-977F-47F863534955}.SingleImage|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

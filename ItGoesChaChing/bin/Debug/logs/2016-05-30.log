@@ -1,0 +1,124 @@
+2016-05-30 14:08:40.7413 INFO Loading the Application. 
+2016-05-30 14:08:40.7899 DEBUG System.Object[] 
+2016-05-30 14:08:40.7899 DEBUG System.Object[] 
+2016-05-30 14:08:40.7899 DEBUG System.Object[] 
+2016-05-30 14:08:40.8075 DEBUG Loading the scheduler... 
+2016-05-30 14:08:40.8075 INFO scheduler loaded 
+2016-05-30 14:08:40.8075 INFO No accounts exist. Creating initial account. 
+2016-05-30 14:10:12.3348 DEBUG System.Object[] 
+2016-05-30 14:10:12.4099 DEBUG System.Object[] 
+2016-05-30 14:10:12.4099 INFO System.Object[] 
+2016-05-30 14:10:12.8449 INFO System.Object[] 
+2016-05-30 14:10:12.8449 DEBUG System.Object[] 
+2016-05-30 14:10:12.9015 DEBUG System.Object[] 
+2016-05-30 14:10:12.9015 DEBUG System.Object[] 
+2016-05-30 14:10:12.9015 INFO System.Object[] 
+2016-05-30 14:10:14.2753 INFO Loading up the Alert balloons... 
+2016-05-30 14:10:14.3723 INFO Performing Login... 
+2016-05-30 14:10:14.3723 DEBUG Logging in accounts... 
+2016-05-30 14:10:14.7229 INFO Logging into ClientAlerts... 
+2016-05-30 14:10:15.4393 DEBUG Login Ack Success 
+2016-05-30 14:10:54.6718 DEBUG Saving scheduler... 
+2016-05-30 14:10:54.7533 DEBUG Scheduler saved. 
+2016-05-30 14:10:57.6569 INFO Calling GetUserAlerts... Version: 847 
+2016-05-30 14:10:57.6569 DEBUG GetUserAlertsCall JSON: {
+					"Timestamp":"2014-08-21T04:05:18.408Z",
+					"Ack":"Success",
+					"Build":"E847_CORE_APINOT_16496971_R1",
+					"Version":"847",
+					"ClientAlerts":
+					{
+						"ClientAlertEvent":[
+						{
+							"EventType":"FeedbackReceived",
+							"FeedbackReceived":
+							{
+								"EventType":"FeedbackReceived",
+								"Timestamp":"2014-08-21T04:01:23.579Z",
+								"FeedbackDetail":
+								{
+									"CommentingUser":"cooch07",
+									"CommentText":"Thank You",
+									"CommentType":"Positive",
+									"ItemID":"121272962371",
+									"Role":"Buyer",
+									"ItemTitle":"VON ZIPPER Boys HOWLING T Shirt Top (10 12) NEW *Billabong Co.",
+									"ItemPrice":
+									{
+										"Value":19.95,
+										"CurrencyID":"AUD"
+									},
+									"FeedbackID":"929232133022",
+									"TransactionID":"1336041473002",
+									"FeedbackScore":50540
+								}
+							}
+						},
+						{
+							"EventType":"AskSellerQuestion",
+							"AskSellerQuestion":
+							{
+								"EventType":"AskSellerQuestion",
+								"Timestamp":"2014-10-21T23:30:46.572Z",
+								"ItemID":"161394110562",
+								"Title":"HURLEY Mens Rashie Wet Surf Swim Rash Vest Shirt Top (S M L) NEW",
+								"MessageID":"926391702018",
+								"MessageType":"AskSellerQuestion"
+							}
+						},
+						{
+							"EventType":"AskSellerQuestion",
+							"AskSellerQuestion":
+							{
+								"EventType":"AskSellerQuestion",
+								"Timestamp":"2014-08-21T03:59:52.787Z",
+								"ItemID":"121403478858",
+								"Title":"HURLEY Mens ALL STATE Black T Shirt Top (M L XL XXL) NEW",
+								"MessageID":"887697677018",
+								"MessageType":"AskSellerQuestion"
+							}
+						},
+						{
+							"EventType":"FixedPriceTransaction",
+							"FixedPriceTransaction":
+							{
+								"EventType":"FixedPriceTransaction",
+								"Timestamp":"2014-08-28T00:56:44.298Z",
+								"ItemID":"171285956209",
+								"BidCount":0,
+								"SellerUserID":"beachrife",
+								"EndTime":"2014-08-28T00:56:42.000Z",
+								"CurrentPrice":{"Value":39.95,"CurrencyID":"AUD"},
+								"Title":"BILLABONG Ladies ROAMING Crew Fleece Jumper (8 10) NEW",
+								"GalleryURL":"http://i.ebayimg.com/00/s/ODAwWDgwMA==/z/QJIAAOxy4eJTOj66/$_12.JPG?set_id=880000500F",
+								"Quantity":6,
+								"Transaction":[
+								{
+									"AmountPaid":{"Value":39.95,"CurrencyID":"AUD"},
+									"QuantitySold":1,
+									"BuyerUserID":"mahon_laure",
+									"TransactionID":"1259131016007",
+									"CreatedDate":"2014-08-28T00:56:42.000Z",
+									"OrderLineItemID":"171285956209-1259131016007"
+								}]
+							}
+						}]
+					},
+					"SessionData":"AQAAAUf13OQAAA1TSUQ9NDA1MTI2M3xTVD0xfDF8TEFDVFY9MTQwODU5MzkxODM5M3xFSFdNPTE4MDUwNzc4NTMzfFRJRFg9MXxMSVVQPTE0MDg1OTMyNjE5MjJ8UExIUz1bXea4wEEeBR+lvVNEOtRmM9Gnk4Ei"
+					} 
+2016-05-30 14:10:57.6890 DEBUG GetUserAlerts Ack Success : 4 alert(s) returned. 
+2016-05-30 14:10:57.6890 DEBUG System.Object[] 
+2016-05-30 14:10:57.6940 DEBUG System.Object[] 
+2016-05-30 14:12:06.3155 INFO Loading the Application. 
+2016-05-30 14:12:06.3615 DEBUG System.Object[] 
+2016-05-30 14:12:06.4032 INFO System.Object[] 
+2016-05-30 14:12:06.4032 DEBUG System.Object[] 
+2016-05-30 14:12:06.4443 INFO System.Object[] 
+2016-05-30 14:12:06.4443 DEBUG System.Object[] 
+2016-05-30 14:12:06.4443 DEBUG Loading the scheduler... 
+2016-05-30 14:12:06.5150 INFO scheduler loaded 
+2016-05-30 14:12:06.5150 INFO Loading up the Alert balloons... 
+2016-05-30 14:12:06.7020 INFO Performing Login... 
+2016-05-30 14:12:06.7020 DEBUG Logging in accounts... 
+2016-05-30 14:12:12.1012 INFO Logging into ClientAlerts... 
+2016-05-30 14:12:13.0004 DEBUG Login Ack Success 

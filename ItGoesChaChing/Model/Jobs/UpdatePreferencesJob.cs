@@ -13,15 +13,10 @@ namespace ItGoesChaChing.Model.Jobs
 		private ILogger Logger;
 
 		#region Constructors...
-
-		public UpdatePreferencesJob() : this(DependencyFactory.Resolve<ILogger>())
+        
+		public UpdatePreferencesJob()
 		{
-
-		}
-
-		public UpdatePreferencesJob(ILogger logger)
-		{
-			this.Logger = logger;
+            this.Logger = LogManager.GetLogger();
 		}
 
 		#endregion

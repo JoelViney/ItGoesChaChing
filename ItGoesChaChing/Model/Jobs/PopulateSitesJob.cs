@@ -12,19 +12,13 @@ namespace ItGoesChaChing.Model.Jobs
 {
 	public class PopulateSitesJob
 	{
-		private ILogger Logger { get; set; }
+		private ILogger Logger;
 
 		#region Constructors...
 
 		public PopulateSitesJob()
-			: this(DependencyFactory.Resolve<ILogger>())
 		{
-
-		}
-
-		public PopulateSitesJob(ILogger logger)
-		{
-			this.Logger = logger;
+			this.Logger = LogManager.GetLogger();
 		}
 		
 		#endregion

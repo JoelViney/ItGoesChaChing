@@ -14,10 +14,10 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkProfile />
-    <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://ftp.beachrife.com.au/itgoeschaching/</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>1</UpdateInterval>
@@ -25,7 +25,6 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://www.beachrife.com.au/itgoeschaching/</InstallUrl>
     <PublisherName>Beachrife</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
@@ -66,25 +65,24 @@
     <ManifestKeyFile>ItGoesChaChing_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="eBay.Service, Version=3.861.0.0, Culture=neutral, PublicKeyToken=1d9d786a5932eaf0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Include\eBay.Service.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,6 +125,7 @@
       <DependentUpon>LocalSettings.settings</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="LogManager.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountList.cs" />
     <Compile Include="Model\AlertPreference.cs" />
@@ -181,7 +180,6 @@
     <Compile Include="Model\_ModelBase.cs" />
     <Compile Include="NotifyPropertyChangedBase.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
-    <Compile Include="ViewModel\AlertPreferencesViewModel.cs" />
     <Compile Include="ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="ViewModel\PopUpViewModel.cs" />
     <Compile Include="ViewModel\AccountsViewModel.cs" />
@@ -193,9 +191,6 @@
     <Compile Include="ViewModel\_ViewModelBase.cs" />
     <Compile Include="View\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AlertPreferencesView.xaml.cs">
-      <DependentUpon>AlertPreferencesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HistoryView.xaml.cs">
       <DependentUpon>HistoryView.xaml</DependentUpon>
@@ -231,10 +226,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AboutView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AlertPreferencesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +278,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ReadMe.txt" />
     <None Include="app.config" />
     <Content Include="Data\Sounds\Groan.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -306,16 +298,10 @@
     <Resource Include="Images\Account.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="ItGoesChaChing_TemporaryKey.pfx" />
     <None Include="LocalSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>LocalSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -324,14 +310,6 @@
     <ProjectReference Include="..\ItGoesChaChing.Ebay\ItGoesChaChing.Ebay.csproj">
       <Project>{37b556ca-14b2-47c2-878e-d7dcae2469ad}</Project>
       <Name>ItGoesChaChing.Ebay</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ItGoesChaChing.Installer\ItGoesChaChing.Installer.csproj">
-      <Project>{68c1f601-eec0-4dba-919e-5620e3b048f0}</Project>
-      <Name>ItGoesChaChing.Installer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ItGoesChaChing.Uninstall\ItGoesChaChing.Uninstall.csproj">
-      <Project>{0cd11d9e-6b6a-4b9c-a13f-cbc20b618d60}</Project>
-      <Name>ItGoesChaChing.Uninstall</Name>
     </ProjectReference>
     <ProjectReference Include="..\NotifyIconWpf\NotifyIconWpf.csproj">
       <Project>{7ac63864-7638-41c4-969c-d3197ef2bed9}</Project>
@@ -368,8 +346,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="WindowIcon.ico" />
-    <Resource Include="TaskbarIcon.ico" />
+    <Resource Include="WindowIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="TaskbarIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Data\Sounds\BabyChicks.mp3" />
     <Content Include="Data\Sounds\BabyChicks.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

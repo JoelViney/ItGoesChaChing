@@ -1,0 +1,210 @@
+2016-06-13 11:26:03.0706 INFO Loading the Application. 
+2016-06-13 11:26:03.0706 DEBUG System.Object[] 
+2016-06-13 11:26:03.1448 INFO System.Object[] 
+2016-06-13 11:26:03.1448 DEBUG System.Object[] 
+2016-06-13 11:26:03.2054 INFO System.Object[] 
+2016-06-13 11:26:03.2054 DEBUG System.Object[] 
+2016-06-13 11:26:03.2110 DEBUG Loading the scheduler... 
+2016-06-13 11:26:03.3228 INFO scheduler loaded 
+2016-06-13 11:26:03.3228 INFO Loading up the Alert balloons... 
+2016-06-13 11:26:03.4302 INFO Performing Login... 
+2016-06-13 11:26:03.4302 DEBUG Logging in accounts... 
+2016-06-13 11:26:08.8899 INFO Logging into ClientAlerts... 
+2016-06-13 11:26:09.6534 DEBUG Login Ack Success 
+2016-06-13 11:26:54.5413 DEBUG System.Object[] 
+2016-06-13 11:26:54.5598 DEBUG System.Object[] 
+2016-06-13 11:26:54.5598 INFO System.Object[] 
+2016-06-13 11:26:54.8682 INFO System.Object[] 
+2016-06-13 11:26:54.8682 DEBUG System.Object[] 
+2016-06-13 11:26:54.8852 DEBUG System.Object[] 
+2016-06-13 11:26:54.8852 DEBUG System.Object[] 
+2016-06-13 11:26:54.8852 INFO System.Object[] 
+2016-06-13 11:27:08.2871 DEBUG Saving scheduler... 
+2016-06-13 11:27:08.3056 DEBUG Scheduler saved. 
+2016-06-13 11:27:32.6906 INFO Loading the Application. 
+2016-06-13 11:27:32.6966 DEBUG System.Object[] 
+2016-06-13 11:27:32.7570 INFO System.Object[] 
+2016-06-13 11:27:32.7570 DEBUG System.Object[] 
+2016-06-13 11:27:32.8072 INFO System.Object[] 
+2016-06-13 11:27:32.8072 DEBUG System.Object[] 
+2016-06-13 11:27:32.8221 DEBUG Loading the scheduler... 
+2016-06-13 11:27:32.9297 INFO scheduler loaded 
+2016-06-13 11:27:32.9297 INFO Loading up the Alert balloons... 
+2016-06-13 11:27:33.0429 INFO Performing Login... 
+2016-06-13 11:27:33.0429 DEBUG Logging in accounts... 
+2016-06-13 11:27:38.3874 INFO Logging into ClientAlerts... 
+2016-06-13 11:27:38.3874 INFO Logging into ClientAlerts... 
+2016-06-13 11:27:38.9690 DEBUG Login Ack Success 
+2016-06-13 11:27:38.9690 DEBUG Login Ack Success 
+2016-06-13 11:30:48.2362 INFO Loading the Application. 
+2016-06-13 11:30:48.2427 DEBUG System.Object[] 
+2016-06-13 11:30:48.3044 INFO System.Object[] 
+2016-06-13 11:30:48.3044 DEBUG System.Object[] 
+2016-06-13 11:30:48.3646 INFO System.Object[] 
+2016-06-13 11:30:48.3646 DEBUG System.Object[] 
+2016-06-13 11:30:48.3646 DEBUG Loading the scheduler... 
+2016-06-13 11:30:48.4766 INFO scheduler loaded 
+2016-06-13 11:30:48.4766 INFO Loading up the Alert balloons... 
+2016-06-13 11:30:48.5819 INFO Performing Login... 
+2016-06-13 11:30:48.5834 DEBUG Logging in accounts... 
+2016-06-13 11:30:54.3126 INFO Logging into ClientAlerts... 
+2016-06-13 11:30:54.3126 INFO Logging into ClientAlerts... 
+2016-06-13 11:30:55.2243 DEBUG Login Ack Success 
+2016-06-13 11:30:55.2243 DEBUG Login Ack Success 
+2016-06-13 11:35:25.8768 INFO Loading the Application. 
+2016-06-13 11:35:25.8843 DEBUG System.Object[] 
+2016-06-13 11:35:25.9530 INFO System.Object[] 
+2016-06-13 11:35:25.9530 DEBUG System.Object[] 
+2016-06-13 11:35:26.0182 INFO System.Object[] 
+2016-06-13 11:35:26.0182 DEBUG System.Object[] 
+2016-06-13 11:35:26.0182 DEBUG Loading the scheduler... 
+2016-06-13 11:35:26.1294 INFO scheduler loaded 
+2016-06-13 11:35:26.1294 INFO Loading up the Alert balloons... 
+2016-06-13 11:35:26.2392 INFO Performing Login... 
+2016-06-13 11:35:26.2392 DEBUG Logging in accounts... 
+2016-06-13 11:35:31.8235 INFO Logging into ClientAlerts... 
+2016-06-13 11:35:31.8235 INFO Logging into ClientAlerts... 
+2016-06-13 11:35:32.5353 DEBUG Login Ack Success 
+2016-06-13 11:35:32.5353 DEBUG Login Ack Success 
+2016-06-13 11:35:41.1515 INFO Calling GetUserAlerts... Version: 847 
+2016-06-13 11:35:41.1515 DEBUG GetUserAlertsCall JSON: {
+					"Timestamp":"2014-08-21T04:05:18.408Z",
+					"Ack":"Success",
+					"Build":"E847_CORE_APINOT_16496971_R1",
+					"Version":"847",
+					"ClientAlerts":
+					{
+						"ClientAlertEvent":[
+						{
+							"EventType":"FeedbackReceived",
+							"FeedbackReceived":
+							{
+								"EventType":"FeedbackReceived",
+								"Timestamp":"2014-08-21T04:01:23.579Z",
+								"FeedbackDetail":
+								{
+									"CommentingUser":"cooch07",
+									"CommentText":"Thank You",
+									"CommentType":"Positive",
+									"ItemID":"121272962371",
+									"Role":"Buyer",
+									"ItemTitle":"VON ZIPPER Boys HOWLING T Shirt Top (10 12) NEW *Billabong Co.",
+									"ItemPrice":
+									{
+										"Value":19.95,
+										"CurrencyID":"AUD"
+									},
+									"FeedbackID":"929232133022",
+									"TransactionID":"1336041473002",
+									"FeedbackScore":50540
+								}
+							}
+						},
+						{
+							"EventType":"AskSellerQuestion",
+							"AskSellerQuestion":
+							{
+								"EventType":"AskSellerQuestion",
+								"Timestamp":"2014-10-21T23:30:46.572Z",
+								"ItemID":"161394110562",
+								"Title":"HURLEY Mens Rashie Wet Surf Swim Rash Vest Shirt Top (S M L) NEW",
+								"MessageID":"926391702018",
+								"MessageType":"AskSellerQuestion"
+							}
+						},
+						{
+							"EventType":"AskSellerQuestion",
+							"AskSellerQuestion":
+							{
+								"EventType":"AskSellerQuestion",
+								"Timestamp":"2014-08-21T03:59:52.787Z",
+								"ItemID":"121403478858",
+								"Title":"HURLEY Mens ALL STATE Black T Shirt Top (M L XL XXL) NEW",
+								"MessageID":"887697677018",
+								"MessageType":"AskSellerQuestion"
+							}
+						},
+						{
+							"EventType":"FixedPriceTransaction",
+							"FixedPriceTransaction":
+							{
+								"EventType":"FixedPriceTransaction",
+								"Timestamp":"2014-08-28T00:56:44.298Z",
+								"ItemID":"171285956209",
+								"BidCount":0,
+								"SellerUserID":"beachrife",
+								"EndTime":"2014-08-28T00:56:42.000Z",
+								"CurrentPrice":{"Value":39.95,"CurrencyID":"AUD"},
+								"Title":"BILLABONG Ladies ROAMING Crew Fleece Jumper (8 10) NEW",
+								"GalleryURL":"http://i.ebayimg.com/00/s/ODAwWDgwMA==/z/QJIAAOxy4eJTOj66/$_12.JPG?set_id=880000500F",
+								"Quantity":6,
+								"Transaction":[
+								{
+									"AmountPaid":{"Value":39.95,"CurrencyID":"AUD"},
+									"QuantitySold":1,
+									"BuyerUserID":"mahon_laure",
+									"TransactionID":"1259131016007",
+									"CreatedDate":"2014-08-28T00:56:42.000Z",
+									"OrderLineItemID":"171285956209-1259131016007"
+								}]
+							}
+						}]
+					},
+					"SessionData":"AQAAAUf13OQAAA1TSUQ9NDA1MTI2M3xTVD0xfDF8TEFDVFY9MTQwODU5MzkxODM5M3xFSFdNPTE4MDUwNzc4NTMzfFRJRFg9MXxMSVVQPTE0MDg1OTMyNjE5MjJ8UExIUz1bXea4wEEeBR+lvVNEOtRmM9Gnk4Ei"
+					} 
+2016-06-13 11:35:41.1806 DEBUG GetUserAlerts Ack Success : 4 alert(s) returned. 
+2016-06-13 11:35:41.1806 DEBUG System.Object[] 
+2016-06-13 11:35:41.1806 DEBUG System.Object[] 
+2016-06-13 11:38:33.7934 INFO Loading the Application. 
+2016-06-13 11:38:33.8009 DEBUG System.Object[] 
+2016-06-13 11:38:33.8642 INFO System.Object[] 
+2016-06-13 11:38:33.8642 DEBUG System.Object[] 
+2016-06-13 11:38:33.9294 INFO System.Object[] 
+2016-06-13 11:38:33.9294 DEBUG System.Object[] 
+2016-06-13 11:38:33.9384 DEBUG Loading the scheduler... 
+2016-06-13 11:38:34.0533 INFO scheduler loaded 
+2016-06-13 11:38:34.0533 INFO Loading up the Alert balloons... 
+2016-06-13 11:38:34.1717 INFO Performing Login... 
+2016-06-13 11:38:34.1737 DEBUG Logging in accounts... 
+2016-06-13 11:38:39.7624 INFO Logging into ClientAlerts... 
+2016-06-13 11:38:39.7624 INFO Logging into ClientAlerts... 
+2016-06-13 11:38:40.5310 DEBUG Login Ack Success 
+2016-06-13 11:38:40.5310 DEBUG Login Ack Success 
+2016-06-13 11:39:47.1797 INFO Loading the Application. 
+2016-06-13 11:39:47.1797 DEBUG System.Object[] 
+2016-06-13 11:39:47.2473 INFO System.Object[] 
+2016-06-13 11:39:47.2473 DEBUG System.Object[] 
+2016-06-13 11:39:47.2970 INFO System.Object[] 
+2016-06-13 11:39:47.2970 DEBUG System.Object[] 
+2016-06-13 11:39:47.2970 DEBUG Loading the scheduler... 
+2016-06-13 11:39:47.4233 INFO scheduler loaded 
+2016-06-13 11:39:47.4233 INFO Loading up the Alert balloons... 
+2016-06-13 11:39:47.5307 INFO Performing Login... 
+2016-06-13 11:39:47.5317 DEBUG Logging in accounts... 
+2016-06-13 11:40:11.9565 INFO Loading the Application. 
+2016-06-13 11:40:11.9565 DEBUG System.Object[] 
+2016-06-13 11:40:12.0295 INFO System.Object[] 
+2016-06-13 11:40:12.0295 DEBUG System.Object[] 
+2016-06-13 11:40:12.0939 INFO System.Object[] 
+2016-06-13 11:40:12.0939 DEBUG System.Object[] 
+2016-06-13 11:40:12.0939 DEBUG Loading the scheduler... 
+2016-06-13 11:40:12.2226 INFO scheduler loaded 
+2016-06-13 11:40:12.2226 INFO Loading up the Alert balloons... 
+2016-06-13 11:40:12.3349 INFO Performing Login... 
+2016-06-13 11:40:12.3349 DEBUG Logging in accounts... 
+2016-06-13 11:40:18.2197 INFO Logging into ClientAlerts... 
+2016-06-13 11:40:18.2197 INFO Logging into ClientAlerts... 
+2016-06-13 11:40:18.9522 DEBUG Login Ack Success 
+2016-06-13 11:40:18.9552 DEBUG Login Ack Success 
+2016-06-13 11:41:18.9725 INFO Calling GetUserAlerts... Version: 847 
+2016-06-13 11:41:19.1977 DEBUG GetUserAlertsCall JSON: {"Timestamp":"2016-06-13T01:43:23.087Z","Ack":"Success","Build":"E957_CORE_APINOT_17857547_R1","Version":"957","SessionData":"AQAAAVUydVwAAA1TSUQ9NjcyNTAwNjh8U1Q9MXwxfExBQ1RWPTE0NjU3ODIyMDMwNzJ8RUhXTT0zMzAxMjM5ODg5M3xUSURYPTB8TElVUD0xNDY1NzgyMTQyODUxfFBMSFM9W12Qtie9sHlhxYRmOXCMmion4jBqLg=="} 
+2016-06-13 11:41:19.1977 DEBUG GetUserAlerts Ack Success 
+2016-06-13 11:41:19.1977 INFO Calling GetUserAlerts... Version: 847 
+2016-06-13 11:41:19.3997 DEBUG GetUserAlertsCall JSON: {"Timestamp":"2016-06-13T01:43:23.336Z","Ack":"Success","Build":"E957_CORE_APINOT_17857547_R1","Version":"957","SessionData":"AQAAAVUydVwAAA1TSUQ9NjcyNTAwNjd8U1Q9MXwxfExBQ1RWPTE0NjU3ODIyMDMzMzZ8RUhXTT0zMzAxMjM5ODg5M3xUSURYPTB8TElVUD0xNDY1NzgyMTQyOTE1fFBMSFM9W11YjlcTGdD7Ch6GD+ERXyf8Q2OtTw=="} 
+2016-06-13 11:41:19.3997 DEBUG GetUserAlerts Ack Success 
+2016-06-13 11:42:20.2049 INFO Calling GetUserAlerts... Version: 847 
+2016-06-13 11:42:20.4041 DEBUG GetUserAlertsCall JSON: {"Timestamp":"2016-06-13T01:44:24.337Z","Ack":"Success","Build":"E957_CORE_APINOT_17857547_R1","Version":"957","SessionData":"AQAAAVUydVwAAA1TSUQ9NjcyNTAwNjh8U1Q9MXwxfExBQ1RWPTE0NjU3ODIyNjQzMzd8RUhXTT0zMzAxMjM5ODg5M3xUSURYPTB8TElVUD0xNDY1NzgyMTQyODUxfFBMSFM9W11pqB7UPQB25WQ5t2iWvXQB2PZoow=="} 
+2016-06-13 11:42:20.4041 DEBUG GetUserAlerts Ack Success 
+2016-06-13 11:42:20.4041 INFO Calling GetUserAlerts... Version: 847 
+2016-06-13 11:42:20.6012 DEBUG GetUserAlertsCall JSON: {"Timestamp":"2016-06-13T01:44:24.525Z","Ack":"Success","Build":"E957_CORE_APINOT_17857547_R1","Version":"957","SessionData":"AQAAAVUydVwAAA1TSUQ9NjcyNTAwNjd8U1Q9MXwxfExBQ1RWPTE0NjU3ODIyNjQ1MjV8RUhXTT0zMzAxMjM5ODg5M3xUSURYPTB8TElVUD0xNDY1NzgyMTQyOTE1fFBMSFM9W11y97GT6+3lnuMAZhUkVnt1kWxwVw=="} 
+2016-06-13 11:42:20.6012 DEBUG GetUserAlerts Ack Success 

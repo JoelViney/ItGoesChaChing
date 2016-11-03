@@ -37,12 +37,6 @@ namespace ItGoesChaChing.View
 				if (viewModel != null)
 					viewModel.Closing();
 			}
-			{
-				AlertPreferencesViewModel viewModel = this.AlertPreferencesView.DataContext as AlertPreferencesViewModel;
-
-				if (viewModel != null)
-					viewModel.Closing();
-			}
 		}
 
 		private void CloseButton_Click(object sender, RoutedEventArgs e)

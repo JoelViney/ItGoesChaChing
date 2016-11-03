@@ -53,11 +53,11 @@ namespace ItGoesChaChing.Model
 
 		#region Constructors...
 
-		public Engine(Context context, ILogger logger)
+		public Engine(Context context)
 			: base()
 		{
 			this.Context = context;
-			this.Logger = logger;
+			this.Logger = LogManager.GetLogger();
 			this.AlertQueue = new Queue<AlertBase>();
 		}
 

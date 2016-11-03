@@ -19,16 +19,10 @@ namespace ItGoesChaChing.Model.Jobs
 		private GetUserAlertsCall ApiCall { get; set; }
 
 		#region Constructors...
-
+		
 		public GetUserAlertsJob()
-			: this(DependencyFactory.Resolve<ILogger>())
 		{
-
-		}
-
-		public GetUserAlertsJob(ILogger logger)
-		{
-			this.Logger = logger;
+			this.Logger = LogManager.GetLogger(); 
 
 			ItGoesChaChing.Ebay.ILogger clientAlertsLogger = this.Logger as ItGoesChaChing.Ebay.ILogger;
 			this.ApiCall = new GetUserAlertsCall(clientAlertsLogger);

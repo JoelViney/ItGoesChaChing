@@ -37,6 +37,11 @@ namespace ItGoesChaChing.ViewModel
 		private MessageBoxResult _defaultResult;
 		private MessageBoxOptions _options;
 
+		public MessageBoxViewModel()
+		{
+
+		}
+
 		public MessageBoxViewModel(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult, MessageBoxOptions options)
 		{
 			this._text = messageBoxText;
@@ -58,11 +63,13 @@ namespace ItGoesChaChing.ViewModel
 		public string Caption
 		{
 			get { return this._caption; }
+			set { this._caption = value; }
 		}
 
 		public string Text
 		{
 			get { return this._text; }
+			set { this._text = value; }
 		}
 
 		public HorizontalAlignment TextAlignment

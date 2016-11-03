@@ -16,14 +16,10 @@ namespace ItGoesChaChing.Model.Factories
 		
 		#region Constructors...
 
-		public FactoryBase(string settingName) : this(settingName, DependencyFactory.Resolve<ILogger>())
-		{
-
-		}
-		public FactoryBase(string settingName, ILogger logger)
+		public FactoryBase(string settingName)
 		{
 			this.SettingName = settingName;
-			this.Logger = logger;
+			this.Logger = LogManager.GetLogger();
 		}
 
 		#endregion

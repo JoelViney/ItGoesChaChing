@@ -2,7 +2,6 @@
 using ItGoesChaChing.Model;
 using ItGoesChaChing.View;
 using ItGoesChaChing.ViewModel;
-using NLog;
 using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -11,10 +10,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Markup;
 using System.Linq;
 using ItGoesChaChing.Model.Ebay;
-using NLog.Targets;
 using ItGoesChaChing.Model.Factories;
 using ItGoesChaChing.Model.Jobs;
-using ItGoesChaChing.Installer;
 
 namespace ItGoesChaChing
 {
@@ -29,22 +26,9 @@ namespace ItGoesChaChing
 			FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
 
 			// Setup the Logger
-			Logger logger = new Logger();
+			ILogger logger = LogManager.GetLogger();
 			logger.Log(LogLevel.Info, "Loading the Application.");
-			DependencyFactory.RegisterInstance(typeof(ILogger), logger);
-
-			// Setup the 'Run on Windows Start'
-			try
-			{
-				ClickOnceHelper clickOnceHelper = new ClickOnceHelper(Globals.PublisherName, Globals.ProductName);
-				clickOnceHelper.UpdateUninstallParameters();
-				clickOnceHelper.AddShortcutToStartup();
-			}
-			catch (Exception ex)
-			{
-				logger.Log(LogLevel.Error, "Failed to install the Run on windows startup.", ex);
-			}
-
+			
 			// Load up the Context & Engine 
 			Engine engine = null;
 			Context context = null;
@@ -118,7 +102,7 @@ namespace ItGoesChaChing
 				context = new Context(accounts, sites, alertPreferences, scheduler);
 
 				// Load the Engine
-				engine = new Engine(context, logger);
+				engine = new Engine(context);
 
 				DependencyFactory.RegisterInstance(context);
 				DependencyFactory.RegisterInstance(engine);
@@ -161,7 +145,7 @@ namespace ItGoesChaChing
 
 		protected override void OnExit(ExitEventArgs e)
 		{
-			ILogger logger = DependencyFactory.Resolve<ILogger>();
+            ILogger logger = LogManager.GetLogger();
 
 			// Logout
 			Engine engine = DependencyFactory.Resolve<Engine>();
